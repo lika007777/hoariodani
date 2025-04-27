@@ -331,4 +331,28 @@ export default function Horarios() {
             <tbody>
               {horarios.map((horario) => (
                 <tr key={horario.id}>
-                  <td>{getDiaSemana(horario.dia_semana)
+                  <td>{getDiaSemana(horario.dia_semana)}</td>
+                  <td>{horario.disciplinas.nome}</td>
+                  <td>{horario.hora_inicio} - {horario.hora_fim}</td>
+                  <td>
+                    <ActionButton 
+                      onClick={() => handleEdit(horario)}
+                    >
+                      Editar
+                    </ActionButton>
+                    <ActionButton 
+                      delete 
+                      onClick={() => handleDelete(horario.id)}
+                    >
+                      Excluir
+                    </ActionButton>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        )}
+      </Card>
+    </Container>
+  );
+}
